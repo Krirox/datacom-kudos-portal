@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+kudos.db
+.venv/

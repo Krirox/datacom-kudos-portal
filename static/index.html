@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kudos · Employee portal</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">K</span>
+      <div>
+        <p class="eyebrow">Employee portal</p>
+        <h1>Kudos</h1>
+      </div>
+    </div>
+    <div class="session" id="session" hidden>
+      <p class="who" id="who"></p>
+      <button type="button" class="ghost" id="logout">Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" id="login-panel">
+      <h2>Sign in</h2>
+      <p class="lede">Give a colleague a short note of appreciation. The latest notes appear on this dashboard.</p>
+      <form id="login-form">
+        <label for="email">Work email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <p class="hint">Demo password for every seeded account: kudos-demo. Riley Morgan is the administrator.</p>
+        <p class="message" id="login-message" role="alert"></p>
+        <button type="submit">Sign in</button>
+      </form>
+    </section>
+
+    <div id="app" hidden>
+      <div class="layout">
+        <section class="card">
+          <h2>Give kudos</h2>
+          <form id="kudos-form">
+            <label for="recipient">Colleague</label>
+            <select id="recipient" name="recipient" required>
+              <option value="">Select a colleague</option>
+            </select>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" maxlength="500" rows="5" required placeholder="What did they do that helped?"></textarea>
+            <p class="count" id="count">500 characters left</p>
+            <p class="message" id="form-message" role="status"></p>
+            <button type="submit" id="send">Send kudos</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>Recent kudos</h2>
+            <p class="hint" id="feed-count"></p>
+          </div>
+          <div id="feed" class="feed"></div>
+          <div class="pager">
+            <button type="button" class="ghost" id="feed-prev">Previous</button>
+            <span id="feed-page"></span>
+            <button type="button" class="ghost" id="feed-next">Next</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" id="moderation" hidden>
+        <div class="section-head">
+          <h2>Moderation</h2>
+          <p class="hint">Hidden notes stay in the record and leave the public feed. Deleted notes are removed.</p>
+        </div>
+        <div id="moderation-list" class="feed"></div>
+        <div class="pager">
+          <button type="button" class="ghost" id="mod-prev">Previous</button>
+          <span id="mod-page"></span>
+          <button type="button" class="ghost" id="mod-next">Next</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
